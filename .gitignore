@@ -1,0 +1,16 @@
+# Archivos compilados y empaquetados de Java
+*.class
+*.jar
+
+# Carpeta de compilación de Maven
+target/
+
+# Configuraciones locales de VS Code y Eclipse
+.vscode/
+.classpath
+.project
+.settings/
+
+# Archivos temporales de Windows o Mac
+.DS_Store
+Thumbs.db
