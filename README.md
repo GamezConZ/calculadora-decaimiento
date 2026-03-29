@@ -21,6 +21,23 @@ A Java-based, cross-platform desktop application (Swing) designed for nuclear me
 * **Build Tool:** Apache Maven
 * **PDF Generation:** iText 5.5.13
 
+### 🚀 How to Run (Prerequisites)
+To run this application, your system **must have Java 21 (or higher)** installed. 
+
+**For Windows:**
+1. Download and install Java 21 (e.g., from [Eclipse Adoptium](https://adoptium.net/) or Oracle).
+2. Download the `calculadora-decaimiento-XXX.jar` file from the [Releases](https://github.com/GamezConZ/calculadora-decaimiento/releases) page.
+3. Double-click the `.jar` file to launch the application.
+
+**For Linux (Ubuntu/Debian):**
+1. Open your terminal and install Java 21 by running: 
+   `sudo apt update && sudo apt install openjdk-21-jre`
+2. Download the `.jar` file from the Releases page.
+3. Make it executable and run it:
+   ```bash
+   chmod +x calculadora-decaimiento-XXX.jar
+   java -jar calculadora-decaimiento-XXX.jar
+
 ### License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
@@ -42,6 +59,25 @@ Aplicación de escritorio multiplataforma desarrollada en Java (Swing) orientada
 * **Interfaz Visual:** Java Swing
 * **Gestor de dependencias:** Apache Maven
 * **Generación de PDF:** iText 5.5.13
+
+
+### 🚀 Cómo Ejecutar (Requisitos)
+Para ejecutar esta aplicación, tu sistema **debe tener instalado Java 21 (o superior)**.
+
+**Para Windows:**
+1. Descarga e instala Java 21 (recomendamos [Eclipse Adoptium](https://adoptium.net/) u Oracle).
+2. Descarga el archivo `calculadora-decaimiento-XXX.jar` desde la pestaña de [Releases](https://github.com/GamezConZ/calculadora-decaimiento/releases).
+3. Haz doble clic en el archivo `.jar` para iniciar la aplicación.
+
+**Para Linux (Ubuntu/Debian):**
+1. Abre tu terminal e instala Java 21 ejecutando:
+   `sudo apt update && sudo apt install openjdk-21-jre`
+2. Descarga el archivo `.jar` desde la página de Releases.
+3. Otórgale permisos de ejecución y ábrelo:
+   ```bash
+   chmod +x calculadora-decaimiento-XXX.jar
+   java -jar calculadora-decaimiento-XXX.jar
+
 
 ### Licencia
 Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE](LICENSE) para más detalles.
