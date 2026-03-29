@@ -21,22 +21,23 @@ A Java-based, cross-platform desktop application (Swing) designed for nuclear me
 * **Build Tool:** Apache Maven
 * **PDF Generation:** iText 5.5.13
 
-### 🚀 How to Run (Prerequisites)
-To run this application, your system **must have Java 21 (or higher)** installed. 
 
-**For Windows:**
-1. Download and install Java 21 (e.g., from [Eclipse Adoptium](https://adoptium.net/) or Oracle).
+### 🚀 How to Run
+
+**Option 1: Windows (No installation required - Recommended)**
+You don't need to install Java to run this version.
+1. Go to the [Releases](https://github.com/GamezConZ/calculadora-decaimiento/releases) page.
+2. Download the `Calculadora_Decaimiento_Windows.zip` file.
+3. Extract the ZIP file anywhere on your computer.
+4. Open the extracted folder and double-click the `Calculadora_Decaimiento.exe` file.
+
+**Option 2: Universal / Linux / Mac (Requires Java 21+)**
+1. Ensure your system has Java 21 or higher installed (e.g., [Eclipse Adoptium](https://adoptium.net/)).
 2. Download the `calculadora-decaimiento-XXX.jar` file from the [Releases](https://github.com/GamezConZ/calculadora-decaimiento/releases) page.
-3. Double-click the `.jar` file to launch the application.
-
-**For Linux (Ubuntu/Debian):**
-1. Open your terminal and install Java 21 by running: 
-   `sudo apt update && sudo apt install openjdk-21-jre`
-2. Download the `.jar` file from the Releases page.
-3. Make it executable and run it:
+3. Double-click the `.jar` file or run it via terminal:
    ```bash
-   chmod +x calculadora-decaimiento-XXX.jar
    java -jar calculadora-decaimiento-XXX.jar
+
 
 ### License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -60,22 +61,20 @@ Aplicación de escritorio multiplataforma desarrollada en Java (Swing) orientada
 * **Gestor de dependencias:** Apache Maven
 * **Generación de PDF:** iText 5.5.13
 
+### 🚀 Cómo Ejecutar
 
-### 🚀 Cómo Ejecutar (Requisitos)
-Para ejecutar esta aplicación, tu sistema **debe tener instalado Java 21 (o superior)**.
+**Opción 1: Windows (Portable, no requiere instalación - Recomendado)**
+No necesitas tener Java instalado en tu computadora para usar esta versión.
+1. Ve a la pestaña de [Releases](https://github.com/GamezConZ/calculadora-decaimiento/releases).
+2. Descarga el archivo `Calculadora_Decaimiento_Windows.zip`.
+3. Descomprime el archivo ZIP en cualquier lugar de tu computadora (ej. Escritorio).
+4. Abre la carpeta extraída y haz doble clic en el archivo `Calculadora_Decaimiento.exe`.
 
-**Para Windows:**
-1. Descarga e instala Java 21 (recomendamos [Eclipse Adoptium](https://adoptium.net/) u Oracle).
-2. Descarga el archivo `calculadora-decaimiento-XXX.jar` desde la pestaña de [Releases](https://github.com/GamezConZ/calculadora-decaimiento/releases).
-3. Haz doble clic en el archivo `.jar` para iniciar la aplicación.
-
-**Para Linux (Ubuntu/Debian):**
-1. Abre tu terminal e instala Java 21 ejecutando:
-   `sudo apt update && sudo apt install openjdk-21-jre`
-2. Descarga el archivo `.jar` desde la página de Releases.
-3. Otórgale permisos de ejecución y ábrelo:
+**Opción 2: Universal / Linux / Mac (Requiere Java 21+)**
+1. Asegúrate de tener instalado Java 21 o superior (recomendamos [Eclipse Adoptium](https://adoptium.net/)).
+2.  Descarga el archivo `calculadora-decaimiento-XXX.jar` desde la pestaña de [Releases](https://github.com/GamezConZ/calculadora-decaimiento/releases).
+3. Haz doble clic en el archivo `.jar` o ejecútalo desde la terminal:
    ```bash
-   chmod +x calculadora-decaimiento-XXX.jar
    java -jar calculadora-decaimiento-XXX.jar
 
 
