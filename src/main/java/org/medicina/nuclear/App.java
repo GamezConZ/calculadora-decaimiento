@@ -5,12 +5,14 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.net.URI;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+// iText imports
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.PageSize;
@@ -18,6 +20,9 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+
+// FlatLaf import
+import com.formdev.flatlaf.FlatLightLaf;
 
 public class App extends JFrame {
 
@@ -41,6 +46,7 @@ public class App extends JFrame {
     
     private JButton calculateBtn;
     private JButton exportPdfBtn;
+    private JButton aboutBtn;
     private JTextArea resultArea;
 
     public App() {
@@ -48,7 +54,6 @@ public class App extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout(10, 10));
 
-        // 1. Input Panel (Now 6 rows for new inputs)
         JPanel inputPanel = new JPanel(new GridLayout(6, 2, 10, 10));
         inputPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 0, 10));
 
@@ -88,17 +93,16 @@ public class App extends JFrame {
         inputPanel.add(timeLabel);
         inputPanel.add(timePanel);
 
-        // 2. Button Panel
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 10));
         calculateBtn = new JButton();
         exportPdfBtn = new JButton();
-        
-        // Added Portuguese to the dropdown
+        aboutBtn = new JButton(); // Inicialización del botón
         langBox = new JComboBox<>(new String[]{"English", "Español", "Français", "Português", "中文", "日本語"});
         
         buttonPanel.add(langBox);
         buttonPanel.add(calculateBtn);
         buttonPanel.add(exportPdfBtn);
+        buttonPanel.add(aboutBtn); // Añadido a la pantalla
 
         JPanel topWrapper = new JPanel(new BorderLayout());
         topWrapper.add(inputPanel, BorderLayout.CENTER);
@@ -106,7 +110,6 @@ public class App extends JFrame {
 
         add(topWrapper, BorderLayout.NORTH);
 
-        // 3. Output Area
         resultArea = new JTextArea();
         resultArea.setEditable(false);
         resultArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
@@ -121,6 +124,15 @@ public class App extends JFrame {
         calculateBtn.addActionListener(e -> calculateTable());
         exportPdfBtn.addActionListener(e -> exportToPdf());
         
+    
+        aboutBtn.addActionListener(e -> {
+            try {
+                Desktop.getDesktop().browse(new URI("https://github.com/GamezConZ/calculadora-decaimiento"));
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "No se pudo abrir el navegador.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+        
         langBox.addActionListener(e -> {
             int idx = langBox.getSelectedIndex();
             switch (idx) {
@@ -133,7 +145,7 @@ public class App extends JFrame {
             }
         });
         
-        setLanguage("en"); // Default
+        setLanguage("en"); 
     }
 
     private void setLanguage(String langCode) {
@@ -152,11 +164,9 @@ public class App extends JFrame {
         timeLabel.setText(bundle.getString("lbl.time"));
         calculateBtn.setText(bundle.getString("btn.calc"));
         exportPdfBtn.setText(bundle.getString("btn.pdf"));
+        aboutBtn.setText(bundle.getString("btn.about")); // Se actualiza dinámicamente
     }
 
-    /**
-     * Helper method to validate empty mandatory fields
-     */
     private boolean areMandatoryFieldsEmpty() {
         return activityField.getText().trim().isEmpty() || 
                volumeField.getText().trim().isEmpty() || 
@@ -188,7 +198,6 @@ public class App extends JFrame {
             
             StringBuilder sb = new StringBuilder();
 
-            // 1. Structured Input Summary
             sb.append(bundle.getString("txt.summary")).append("\n");
             String instName = instField.getText().trim();
             if (!instName.isEmpty()) {
@@ -199,14 +208,12 @@ public class App extends JFrame {
             sb.append("• ").append(bundle.getString("lbl.dose")).append(" ").append(targetDose).append(" ").append(unit).append("\n");
             sb.append("• ").append(bundle.getString("lbl.time")).append(" ").append(timeInput).append("\n\n");
 
-            // 2. Professional Paragraphs
             String paragraph1 = String.format(bundle.getString("msg.v0"), targetDoseStr, unit, v0Str);
             String paragraph2 = bundle.getString("msg.desc");
 
             sb.append(paragraph1).append("\n\n");
             sb.append(paragraph2).append("\n\n");
             
-            // 3. Table header
             sb.append(String.format("%-20s %s\n", bundle.getString("tbl.vol"), bundle.getString("tbl.time")));
             sb.append("------------------------------------------\n");
 
@@ -255,7 +262,6 @@ public class App extends JFrame {
                 PdfWriter.getInstance(document, new FileOutputStream(filePath));
                 document.open();
 
-                // 1. Institution Header (if provided)
                 String instName = instField.getText().trim();
                 if (!instName.isEmpty()) {
                     com.itextpdf.text.Font instFont = new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.HELVETICA, 16, com.itextpdf.text.Font.BOLD);
@@ -265,7 +271,6 @@ public class App extends JFrame {
                     document.add(instPara);
                 }
 
-                // 2. Title
                 com.itextpdf.text.Font titleFont = new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.HELVETICA, 14, com.itextpdf.text.Font.BOLD);
                 Paragraph titlePara = new Paragraph(bundle.getString("pdf.title"), titleFont);
                 titlePara.setAlignment(Element.ALIGN_CENTER);
@@ -278,7 +283,6 @@ public class App extends JFrame {
                 String unit = (String) unitBox.getSelectedItem();
                 String timeInput = timeField.getText().trim() + " " + amPmBox.getSelectedItem();
                 
-                // 3. Input Summary List
                 com.itextpdf.text.Font listFont = new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.HELVETICA, 12, com.itextpdf.text.Font.NORMAL);
                 document.add(new Paragraph(bundle.getString("txt.summary"), new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.HELVETICA, 12, com.itextpdf.text.Font.BOLD)));
                 document.add(new Paragraph("• " + bundle.getString("lbl.activity") + " " + initialActivity + " " + unit, listFont));
@@ -289,7 +293,6 @@ public class App extends JFrame {
                 timePara.setSpacingAfter(15f);
                 document.add(timePara);
                 
-                // 4. Paragraphs
                 Isotope tc99m = new Isotope("99mTc", 361.2);
                 double v0 = DecayCalculator.calculateInitialVolume(targetDose, initialActivity, totalVolume);
                 String targetDoseStr = String.format(Locale.US, "%.0f", targetDose);
@@ -303,7 +306,6 @@ public class App extends JFrame {
                 param2.setSpacingAfter(20f);
                 document.add(param2);
 
-                // 5. Table
                 PdfPTable table = new PdfPTable(2);
                 table.addCell(new PdfPCell(new Paragraph(bundle.getString("tbl.vol") + " (ml)")));
                 table.addCell(new PdfPCell(new Paragraph(bundle.getString("tbl.time"))));
@@ -333,6 +335,13 @@ public class App extends JFrame {
     }
 
     public static void main(String[] args) {
+        // Inicializar el tema FlatLaf antes de crear la ventana
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (Exception ex) {
+            System.err.println("No se pudo inicializar FlatLaf");
+        }
+
         SwingUtilities.invokeLater(() -> {
             App app = new App();
             app.setLocationRelativeTo(null);
