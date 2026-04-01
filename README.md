@@ -12,7 +12,7 @@ A Java-based, cross-platform desktop application (Swing) designed for nuclear me
 ### Clinical Features
 * **Time-Zero Volume ($V_0$):** Calculates the exact ideal volume to inject at the moment of preparation.
 * **Injection Timetable:** Generates a precise, minute-by-minute wait-time table mapped to standard 0.1 ml syringe increments to maintain a constant target dose.
-* **Native Multilingual Support:** The user interface can be dynamically switched between **English, Español, Français, Português, 中文 (Chinese), and 日本語 (Japanese)**.
+* **Native Multilingual Support:** The user interface can be dynamically switched between **English, Español, Français, Português, Deutsch, Italiano, العربية (Arabic), हिन्दी (Hindi), Kiswahili, Hausa, 中文 (Chinese), and 日本語 (Japanese)**.
 * **Clinical PDF Export:** Automatically generates an A4 PDF report detailing the input parameters, institution name, and the full injection timetable using iText.
 
 ### Tech Stack
@@ -52,7 +52,7 @@ Aplicación de escritorio multiplataforma desarrollada en Java (Swing) orientada
 ### Características Clínicas
 * **Cálculo de Volumen Cero ($V_0$):** Determina el volumen ideal a inyectar en el momento exacto de la preparación.
 * **Cronograma Escalonado:** Genera una tabla de tiempos de espera precisos (minutos) asociados a incrementos de 0.1 ml en la jeringa para mantener la dosis requerida.
-* **Soporte Multilingüe Nativo:** La interfaz de usuario puede alternarse dinámicamente entre **Inglés, Español, Francés, Portugués, Chino y Japonés**.
+* **Soporte Multilingüe Nativo:** La interfaz de usuario puede alternarse dinámicamente entre **Inglés, Español, Francés, Portugués, Alemán, Italiano, Árabe, Hindi, Suajili, Hausa, Chino y Japonés**.
 * **Exportación Clínica a PDF:** Generación automatizada de reportes en PDF formato A4 listos para imprimir, incluyendo datos de la institución, parámetros de entrada y la tabla de inyección mediante iText.
 
 ### Tecnologías
