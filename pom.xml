@@ -4,12 +4,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.medicina.nuclear</groupId>
+  <groupId>io.github.gamezconz</groupId>
   <artifactId>calculadora-decaimiento</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.2</version>
 
-  <name>calculadora-decaimiento</name>
-  <url>http://www.example.com</url>
+  <name>Calculadora de Decaimiento</name>
+  <url>https://github.com/gamezconz/calculadora-decaimiento</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -85,7 +85,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>org.medicina.nuclear.App</mainClass>
+              <mainClass>io.github.gamezconz.App</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>

@@ -1,4 +1,4 @@
-package org.medicina.nuclear;
+package io.github.gamezconz;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -96,13 +96,16 @@ public class App extends JFrame {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 10));
         calculateBtn = new JButton();
         exportPdfBtn = new JButton();
-        aboutBtn = new JButton(); // Inicialización del botón
-        langBox = new JComboBox<>(new String[]{"English", "Español", "Français", "Português", "中文", "日本語"});
+        aboutBtn = new JButton();
+        langBox = new JComboBox<>(new String[]{
+            "English", "Español", "Français", "Português", "Deutsch", "Italiano", 
+            "العربية (Arabic)", "हिन्दी (Hindi)", "Kiswahili", "Hausa", "中文", "日本語"
+        });
         
         buttonPanel.add(langBox);
         buttonPanel.add(calculateBtn);
         buttonPanel.add(exportPdfBtn);
-        buttonPanel.add(aboutBtn); // Añadido a la pantalla
+        buttonPanel.add(aboutBtn);
 
         JPanel topWrapper = new JPanel(new BorderLayout());
         topWrapper.add(inputPanel, BorderLayout.CENTER);
@@ -140,8 +143,14 @@ public class App extends JFrame {
                 case 1: setLanguage("es"); break;
                 case 2: setLanguage("fr"); break;
                 case 3: setLanguage("pt"); break;
-                case 4: setLanguage("zh"); break;
-                case 5: setLanguage("ja"); break;
+                case 4: setLanguage("de"); break;
+                case 5: setLanguage("it"); break;
+                case 6: setLanguage("ar"); break;
+                case 7: setLanguage("hi"); break;
+                case 8: setLanguage("sw"); break;
+                case 9: setLanguage("ha"); break;
+                case 10: setLanguage("zh"); break;
+                case 11: setLanguage("ja"); break;
             }
         });
         

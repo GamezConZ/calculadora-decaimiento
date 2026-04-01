@@ -1,4 +1,4 @@
-package org.medicina.nuclear; 
+package io.github.gamezconz; 
 
 /**
  * Represents a radioactive isotope with its physical properties.

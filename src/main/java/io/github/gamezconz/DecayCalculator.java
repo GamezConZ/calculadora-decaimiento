@@ -1,4 +1,4 @@
-package org.medicina.nuclear;
+package io.github.gamezconz;
 
 /**
  * Handles the mathematical operations for radioactive decay and volume calculations.
